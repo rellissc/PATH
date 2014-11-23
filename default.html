@@ -375,7 +375,7 @@
 
     <div id="menu-appliance-main" style="display: none;">
         <div>
-            <h1>LG TV</h1>
+            <h1 data-bind="text: currProduct().attributes.name"></h1>
         </div>
         <div class="form-group well well-sm">
             <div class="row margin-sm">
@@ -419,7 +419,7 @@
 
     <div id="menu-appliance-simple-manual" style="display: none;">
         <div>
-            <h1>LG TV</h1>
+            <h1 data-bind="text: currProduct().attributes.name"></h1>
         </div>
         <div class="form-group well well-sm">
             <div class="row margin-sm">
@@ -546,7 +546,7 @@
 
     <div id="menu-appliance-original-manual" style="display: none;">
         <div>
-            <h1>LG TV</h1>
+            <h1 data-bind="text: currProduct().attributes.name"></h1>
         </div>
         <div class="form-group well well-sm">
             <div class="row margin-sm">
@@ -581,7 +581,7 @@
 
     <div id="menu-appliance-videos" style="display: none;">
         <div>
-            <h1>LG TV</h1>
+            <h1 data-bind="text: currProduct().attributes.name"></h1>
         </div>
         <div class="form-group well well-sm">
             <div class="row margin-sm">
@@ -736,9 +736,12 @@
                 $element: '#menu-appliance-main',
                 onLoad: function (query) {
                     if (query && query.id) {
-                        Page.vm.currProduct(Page.products.filter(function (o) {
+                        var product = Page.products.filter(function (o) {
                             return o.attributes.id == query.id;
-                        })[0]);
+                        })[0];
+                        if (product) {
+                            Page.vm.currProduct(product);
+                        }
                     }
                 }
             },
@@ -748,9 +751,12 @@
                 $element: '#menu-appliance-simple-manual',
                 onLoad: function (query) {
                     if (query && query.id) {
-                        Page.vm.currProduct(Page.products.filter(function (o) {
+                        var product = Page.products.filter(function (o) {
                             return o.attributes.id == query.id;
-                        })[0]);
+                        })[0];
+                        if (product) {
+                            Page.vm.currProduct(product);
+                        }
                     }
                 }
             },
@@ -760,9 +766,12 @@
                 $element: '#menu-appliance-original-manual',
                 onLoad: function (query) {
                     if (query && query.id) {
-                        Page.vm.currProduct(Page.products.filter(function (o) {
+                        var product = Page.products.filter(function (o) {
                             return o.attributes.id == query.id;
-                        })[0]);
+                        })[0];
+                        if (product) {
+                            Page.vm.currProduct(product);
+                        }
                     }
                 }
             },
@@ -772,9 +781,12 @@
                 $element: '#menu-appliance-videos',
                 onLoad: function (query) {
                     if (query && query.id) {
-                        Page.vm.currProduct(Page.products.filter(function (o) {
+                        var product = Page.products.filter(function (o) {
                             return o.attributes.id == query.id;
-                        })[0]);
+                        })[0];
+                        if (product) {
+                            Page.vm.currProduct(product);
+                        }
                     }
                 }
             }
