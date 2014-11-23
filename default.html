@@ -72,7 +72,7 @@
                 </div>
             </div>
             <div class="row margin-sm" style="text-align: center;">
-                <div style="border: 2px gray dashed;">
+                <div style="border: 2px gray dashed;" data-bind="click: takeBarcodePicture">
                     <div>
                         <img src="images/camera-256.png" />
                     </div>
@@ -81,12 +81,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row margin-sm">
-                <button class="btn btn-success nav-btn" data-bind="click: function () { searchBarcode($root.barcode()); }">
-                    <span style="float: left;"><i class="fa fa-search fa-lg"></i>&nbsp;&nbsp;Go</span>
-                    <span style="float: right;"><i class="fa fa-angle-right fa-lg"></i></span>
-                </button>
-            </div>
+            <input id="barcode-capture-input" style="display: none;" type="file" capture="camera" />
         </div>
     </div>
 
@@ -1071,6 +1066,16 @@
                 }
 
                 hasher.setHash(target);
+            };
+
+            Page.vm.takeBarcodePicture = function () {
+                var $capture = $('#barcode-capture-input');
+                $capture.on('change', function () {
+                    var $capture2 = $('#barcode-capture-input');
+                    $capture2.replaceWith($capture2.clone(true));
+                    hasher.setHash('#Search/Results?barcode=5555555');
+                });
+                $capture.trigger('click');
             };
         };
 
