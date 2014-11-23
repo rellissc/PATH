@@ -366,6 +366,9 @@
                         </button>
                     </div>
                     <!-- /ko -->
+                    <!-- ko if: products().length <= 0 -->
+                        <h2>No products found.</h2>
+                    <!-- /ko -->
                 </div>
             </div>
         </div>
@@ -391,7 +394,13 @@
                 </button>
             </div>
 
-            <h3 class="section-header">Manual</h3>
+            <h3 class="section-header">Model Number</h3>
+            <hr />
+            <div class="row margin-sm">
+                <h5 data-bind="text: currProduct().attributes.modelNumber"></h5>
+            </div>
+
+            <h3 class="section-header">Manuals</h3>
             <hr />
             <div class="row margin-sm">
                 <button class="btn btn-primary nav-btn" data-bind="attr: { 'data-targetroute': '#Appliance/SimpleManual?id=' + currProduct().attributes.id }" data-targetroute="#Appliance/SimpleManual">
@@ -813,14 +822,126 @@
             ACCESSORY: 'accessory'
         };
         Page.productDescriptors = [
-            { //LG TV
-                id: 'lg-tv',
-                name: 'LG TV',
+            { //television is first for demo purposes
+                id: 'television01',
+                name: '50" LG LED',
                 categoryId: Page.categoryIds.TELEVISION,
-                iconUrl: 'images/lg-tv.jpg',
+                iconUrl: 'images/television01.jpg',
                 modelNumber: '32LW5700',
                 barcode: '5555555'
-            }
+            },
+            {
+                id: 'cellphone01',
+                name: 'Nokia Lumia',
+                categoryId: Page.categoryIds.CELL_PHONE,
+                iconUrl: 'images/cellphone01.jpg',
+                modelNumber: '32LS5700',
+                barcode: '55553255'
+            },
+            {
+                id: 'tablet01',
+                name: 'Apple iPad Air',
+                categoryId: Page.categoryIds.TABLET,
+                iconUrl: 'images/tablet01.jpg',
+                modelNumber: '3ASLS5700',
+                barcode: '325412'
+            },
+            {
+                id: 'watch01',
+                name: 'Pebble',
+                categoryId: Page.categoryIds.WATCH,
+                iconUrl: 'images/watch01.jpg',
+                modelNumber: '41AASG32',
+                barcode: '62341'
+            },
+            {
+                id: 'television02',
+                name: '29" LG LCD',
+                categoryId: Page.categoryIds.TELEVISION,
+                iconUrl: 'images/television02.jpg',
+                modelNumber: '61223ASFG',
+                barcode: '6234167'
+            },
+            {
+                id: 'speakers01',
+                name: 'Bose - CineMate',
+                categoryId: Page.categoryIds.SPEAKERS,
+                iconUrl: 'images/speakers01.jpg',
+                modelNumber: 'HHSA32',
+                barcode: '994556'
+            },
+            {
+                id: 'gaming01',
+                name: 'XBOX One',
+                categoryId: Page.categoryIds.GAMING,
+                iconUrl: 'images/gaming01.jpg',
+                modelNumber: 'HAWE512',
+                barcode: '76724'
+            },
+            {
+                id: 'washer-dryer01',
+                name: 'LG Gas Dryer',
+                categoryId: Page.categoryIds.WASHER_DRYER,
+                iconUrl: 'images/washer-dryer01.jpg',
+                modelNumber: 'XCBR12512',
+                barcode: '721222'
+            },
+            {
+                id: 'refrigerator01',
+                name: 'LG French Door',
+                categoryId: Page.categoryIds.REFRIGERATOR,
+                iconUrl: 'images/refrigerator01.jpg',
+                modelNumber: '6234HHHSA',
+                barcode: '723412343'
+            },
+            {
+                id: 'microwave01',
+                name: 'LG Fullsize Microwave',
+                categoryId: Page.categoryIds.MICROWAVE,
+                iconUrl: 'images/microwave01.jpg',
+                modelNumber: '6234HHHSA',
+                barcode: '723412343'
+            },
+            {
+                id: 'monitor01',
+                name: 'LG Black 22"',
+                categoryId: Page.categoryIds.MONITOR,
+                iconUrl: 'images/monitor01.jpg',
+                modelNumber: '22MP55HQ',
+                barcode: '7632422677'
+            },
+            {
+                id: 'desktop01',
+                name: 'Lenovo H530',
+                categoryId: Page.categoryIds.DESKTOP,
+                iconUrl: 'images/desktop01.jpg',
+                modelNumber: '57324189',
+                barcode: '666611125'
+            },
+            {
+                id: 'laptop01',
+                name: 'Toshiba - Satellite',
+                categoryId: Page.categoryIds.LAPTOP,
+                iconUrl: 'images/laptop01.jpg',
+                modelNumber: 'HHA2315123',
+                barcode: '612677'
+            },
+            {
+                id: 'accessory01',
+                name: 'Logitech Wireless Mouse M320',
+                categoryId: Page.categoryIds.ACCESSORY,
+                iconUrl: 'images/accessory01.jpg',
+                modelNumber: 'JUJSERY23',
+                barcode: '72341651'
+            },
+            {
+                id: 'accessory02',
+                name: 'Logitech Wireless Combo MK270',
+                categoryId: Page.categoryIds.ACCESSORY,
+                iconUrl: 'images/accessory02.jpg',
+                modelNumber: 'HHAS35124',
+                barcode: '722237788'
+            },
         ];
         Page.products = []; //gets filled in inside _populateProducts, based on product descriptors
 
